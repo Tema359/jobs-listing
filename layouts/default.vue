@@ -1,10 +1,20 @@
 <template>
   <div>
-    <Nuxt />
+    <Navbar />
+    <main class="main">
+      <v-container fluid>
+        <Nuxt />
+      </v-container>
+    </main>
   </div>
 </template>
 
-<script></script>
+<script>
+import Navbar from '@/components/Navbar'
+export default {
+  components: { Navbar },
+}
+</script>
 <style lang="scss">
 * {
   box-sizing: border-box;
