@@ -1,19 +1,15 @@
 <template>
-  <v-card class="mx-auto" max-width="344">
-    <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-      height="200px"
-    />
-    <v-card-title> Top western road trips </v-card-title>
+  <v-card class="mx-auto" width="600">
+    <v-card-title
+      >{{ jobItem.jobTitle }}
+      <span class="company-name"> {{ jobItem.companyName }} </span>
+    </v-card-title>
 
-    <v-card-subtitle> 1,000 miles of wonder </v-card-subtitle>
+    <v-card-subtitle>{{ jobItem.createdDate }}</v-card-subtitle>
 
     <v-card-actions>
-      <v-btn color="orange lighten-2" text> Explore </v-btn>
-
-      <v-spacer />
-
-      <v-btn icon @click="show = !show">
+      <v-btn color="#1c4248" @click="show = !show"
+        >{{ show ? 'Hide Details' : 'View  Details' }}
         <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
       </v-btn>
     </v-card-actions>
@@ -45,11 +41,18 @@ export default {
   data() {
     return {
       show: false,
+      changeText: false,
     }
   },
-
-  mounted() {
-    console.log(this.jobItem)
-  },
+  mounted() {},
 }
 </script>
+
+<style lang="scss">
+.company-name {
+  color: gray;
+}
+.v-btn__content {
+  color: #fff;
+}
+</style>

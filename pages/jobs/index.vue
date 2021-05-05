@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h1>Jobjs List</h1>
+    <h1>{{ pageTitle }}</h1>
 
-    <ul>
-      <li v-for="job of jobs" :key="job.id">
+    <ul class="cards-list">
+      <li v-for="job of jobs" :key="job.id" class="cards-list__item">
         <JobCard :job-item="job" />
       </li>
     </ul>
@@ -12,21 +12,32 @@
 
 <script>
 export default {
-  async asyncData({ $axios }) {
-    const url = 'https://608ea0bb0294cd001765d8a0.mockapi.io/api/jobs'
-    const response = await $axios.get(url)
-    const jobs = response.data
-    return { jobs }
-  },
   data() {
     return {
-      jobs: [],
+      pageTitle: 'Jobjs List',
     }
   },
-  async mounted() {
-    const url = 'https://608ea0bb0294cd001765d8a0.mockapi.io/api/jobs'
-    const response = await this.$axios.get(url)
-    this.jobs = response.data
+  async fetch({ store }) {
+    if (store.getters['jobs/jobs'].length === 0) {
+      await store.dispatch('jobs/fetchJobsList')
+    }
+  },
+  computed: {
+    jobs() {
+      return this.$store.getters['jobs/jobs']
+    },
   },
 }
 </script>
+
+<style lang="scss">
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  &__item {
+    margin-bottom: 40px;
+  }
+}
+</style>
