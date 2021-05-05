@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <v-app>
     <Navbar />
     <main class="main">
       <v-container fluid>
         <Nuxt />
       </v-container>
     </main>
-  </div>
+  </v-app>
 </template>
 
 <script>

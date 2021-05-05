@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto overflow-hidden">
+  <v-card>
     <v-app-bar color="#1c4248">
       <v-toolbar-title>Jobs Listing</v-toolbar-title>
 

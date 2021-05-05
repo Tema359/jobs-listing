@@ -1,4 +1,4 @@
-import colors from 'vuetify/es5/util/colors';
+import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -15,6 +15,8 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+
+  loading: { color: 'blue' },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
@@ -63,4 +65,4 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-};
+}
