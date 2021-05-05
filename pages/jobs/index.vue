@@ -14,7 +14,7 @@
 export default {
   data() {
     return {
-      pageTitle: 'Jobjs List',
+      pageTitle: 'Jobs List',
     }
   },
   async fetch({ store }) {
