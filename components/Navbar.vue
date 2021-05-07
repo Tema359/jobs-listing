@@ -23,12 +23,6 @@
 export default {
   data: () => ({
     drawer: false,
-    group: null,
-    items: [
-      ['mdi-email', 'Inbox'],
-      ['mdi-account-supervisor-circle', 'Supervisors'],
-      ['mdi-clock-start', 'Clock-in'],
-    ],
   }),
 }
 </script>
