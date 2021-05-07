@@ -26,7 +26,9 @@
         <v-card-text>
           <p class="job-description__country">Country: {{ jobItem.country }}</p>
           <p class="job-description__city">City: {{ jobItem.city }}</p>
-          <span class="job-description__area">{{ jobItem.jobArea }}</span>
+          <span v-if="jobItem.jobArea" class="job-description__area">{{
+            jobItem.jobArea
+          }}</span>
           <span class="job-description__area">{{
             jobItem.jobDescription
           }}</span>

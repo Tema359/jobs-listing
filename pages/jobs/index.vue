@@ -1,9 +1,14 @@
 <template>
   <div>
     <h1>{{ pageTitle }}</h1>
-
+    <v-text-field
+      v-model="searchItem"
+      class="input-search"
+      :placeholder="placeholder"
+      outlined
+    ></v-text-field>
     <ul class="cards-list">
-      <li v-for="job of historyList" :key="job.id" class="cards-list__item">
+      <li v-for="job of filteredData" :key="job.id" class="cards-list__item">
         <JobCard :job-item="job" />
       </li>
     </ul>
@@ -25,6 +30,8 @@ export default {
       pageSize: 5,
       listCount: 0,
       historyList: [],
+      placeholder: 'Find Job',
+      searchItem: '',
     }
   },
   async fetch({ store }) {
@@ -40,6 +47,11 @@ export default {
       const _this = this
       if (_this.pageSize == null || _this.listCount == null) return 0
       return Math.ceil(_this.listCount / _this.pageSize)
+    },
+    filteredData() {
+      return this.historyList.filter((item) => {
+        return item.jobType.toLowerCase().match(this.searchItem.toLowerCase())
+      })
     },
   },
   created() {
@@ -68,7 +80,14 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.input-search {
+  max-width: 600px;
+  margin: 0 auto;
+  .v-input__control .v-input__slot {
+    min-height: 45px;
+  }
+}
 .cards-list {
   display: flex;
   flex-direction: column;
