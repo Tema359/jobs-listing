@@ -34,11 +34,8 @@
           }}</span>
           <p class="job-description__text">{{ jobDescText }}</p>
           <p class="job-description__salary"
-            >Salary: ${{
-              parseFloat(jobItem.salary.toString().slice(0, 2)) - 10
-            }}K - ${{
-              parseFloat(jobItem.salary.toString().slice(0, 2)) + 25
-            }}K</p
+            >Salary: ${{ parseFloat(jobItem.salary.toString().slice(0, 2)) }}K -
+            ${{ parseFloat(jobItem.salary.toString().slice(0, 2)) + 25 }}K</p
           >
         </v-card-text>
       </div>

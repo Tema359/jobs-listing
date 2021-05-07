@@ -3,6 +3,8 @@
 ## Build Setup
 
 ```bash
+# clone repository from branch master
+
 # install dependencies
 $ npm install
 
